@@ -1,14 +1,18 @@
 #include "SharedBankModuleConfig.h"
-#include "Config.h"
+#include "Config/Config.h"
 
-SharedBankModuleConfig::SharedBankModuleConfig()
-    : ModuleConfig("SharedBank"),
-      Enabled(true),
-      SpellId(90000),
-      BankSlots(28) {}
+namespace cmangos_module
+{
 
-void SharedBankModuleConfig::LoadConfig() {
-    Enabled = sConfigMgr->GetBoolDefault("SharedBank.Enabled", true);
-    SpellId = sConfigMgr->GetIntDefault("SharedBank.SpellId", 90000);
-    BankSlots = sConfigMgr->GetIntDefault("SharedBank.Slots", 28);
-}
+    SharedBankModuleConfig::SharedBankModuleConfig()
+        : ModuleConfig("sharedbank.conf") {}
+
+    bool SharedBankModuleConfig::OnLoad()
+    {
+        Enabled = config.GetBoolDefault("SharedBank.Enabled", true);
+        SpellId = config.GetIntDefault("SharedBank.SpellId", 90000);
+        BankSlots = config.GetIntDefault("SharedBank.Slots", 28);
+        return true;
+    }
+
+} // namespace cmangos_module
