@@ -1,0 +1,3 @@
+SharedBank.Enabled = true
+SharedBank.SpellId = 90000
+SharedBank.Slots = 28
