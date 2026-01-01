@@ -3,14 +3,20 @@
 
 #include "ModuleConfig.h"
 
-class SharedBankModuleConfig : public ModuleConfig {
-public:
-    bool Enabled;
-    uint32 SpellId;
-    uint8 BankSlots;
+namespace cmangos_module
+{
 
-    SharedBankModuleConfig();
-    void LoadConfig() override;
-};
+    class SharedBankModuleConfig : public ModuleConfig
+    {
+    public:
+        bool Enabled = true;
+        uint32 SpellId = 90000;
+        uint8 BankSlots = 28;
+
+        SharedBankModuleConfig();
+        bool OnLoad() override;
+    };
+
+} // namespace cmangos_module
 
 #endif
