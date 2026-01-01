@@ -1,7 +1,7 @@
 #include "SharedBankModule.h"
 #include "Config/Config.h"
 #include "Database/DatabaseEnv.h"
-#include "Server/WorldPacket.h" // Try this path if "WorldPacket.h" fails
+#include "Server/WorldPacket.h"
 #include "Server/Opcodes.h"
 #include <cstdint>
 
@@ -33,7 +33,7 @@ namespace cmangos_module
     {
         WorldPacket data(SMSG_SHOW_BANK);
         data << uint64(0xDEADBEEFDEADBEEFULL);
-        player->GetSession()->SendPacket(&data);
+        player->GetSession()->SendPacket(data);
     }
 
 } // namespace cmangos_module
