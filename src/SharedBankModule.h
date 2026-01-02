@@ -1,3 +1,4 @@
+// Updated SharedBankModule.h
 #ifndef SHAREDBANKMODULE_H
 #define SHAREDBANKMODULE_H
 
@@ -21,6 +22,10 @@ namespace cmangos_module
         void OnItemMove(Player* player, Item* item, uint8 srcBag, uint8 srcSlot, uint8 dstBag, uint8 dstSlot);
     private:
         void OpenSharedBank(Player* player);
+        void SavePersonalBank(Player* player);
+        void LoadSharedBank(Player* player);
+        void SaveSharedBank(Player* player);
+        void RestorePersonalBank(Player* player);
     };
 
     extern SharedBankModule sharedBankModule;
